@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import io
 
-st.set_page_config(page_title="Amazon Transaction Report", page_icon="📦", layout="wide")
+st.set_page_config(page_title="Amazon Reverse Logistic FBA Report", page_icon="📦", layout="wide")
 
-st.title("📦 Amazon Transaction Report Generator")
+st.title("📦Amazon Reverse Logistic FBA Report Generator")
 st.markdown("Upload your files below to generate **Orders Pivot**, **Refunds Pivot**, **Returns Analysis**, and **Brand-wise Reverse Logistics** reports.")
 
 # ─── File Uploaders ───────────────────────────────────────────────────────────
@@ -258,4 +258,5 @@ else:
     - **Refunds Pivot** — Quantity & Total for refunded items  
     - **Returns Analysis** — Returns with Order Payment, Refund Payment, Reverse Logistic Charges, Brand & Brand Manager  
     - **Brand Reverse Logistics** — Brand-wise sum of Reverse Logistic Charges  
+
     """)
