@@ -32,12 +32,26 @@ if transaction_file and returns_file and pm_file:
     with st.spinner("Processing files…"):
 
         # 1. Load Transaction CSV
-        df = pd.read_csv(
-            transaction_file,
-            skiprows=11,
-            thousands=",",
-            low_memory=False,
-        )
+        # 1. Load Transaction CSV
+        try:
+            df = pd.read_csv(
+                transaction_file,
+                skiprows=11,
+                thousands=",",
+                low_memory=False,
+                encoding="utf-8",
+                on_bad_lines="skip"
+            )
+        
+        except UnicodeDecodeError:
+            df = pd.read_csv(
+                transaction_file,
+                skiprows=11,
+                thousands=",",
+                low_memory=False,
+                encoding="latin1",
+                on_bad_lines="skip"
+            )
 
         # 2. Orders
         df_orders = df[df["type"] == "Order"].copy()
