@@ -36,7 +36,7 @@ if transaction_file and returns_file and pm_file:
         try:
             df = pd.read_csv(
                 transaction_file,
-                skiprows=11,
+                skiprows=13,
                 thousands=",",
                 low_memory=False,
                 encoding="utf-8",
@@ -46,7 +46,7 @@ if transaction_file and returns_file and pm_file:
         except UnicodeDecodeError:
             df = pd.read_csv(
                 transaction_file,
-                skiprows=11,
+                skiprows=13,
                 thousands=",",
                 low_memory=False,
                 encoding="latin1",
